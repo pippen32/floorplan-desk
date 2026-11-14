@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FloorPlan Desk — 2D Floor Plans for Listings | All 3 Versions, One $49 Price</title>
+<meta name="description" content="Send a rough sketch, get a listing-ready 2D floor plan in 24–48 hours: black & white, color, and dimensioned versions plus your agent branding — all included for $49 per property. Realtor pack: 5 plans for $199.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --slate:#23272e; --slate2:#2b3038; --slate3:#31363f;
+  --cyan:#37d0d6; --cyan-dim:rgba(55,208,214,.45);
+  --orange:#ff7a1a; --ink:#eef2f4; --muted:#aeb9c2;
+  --paper:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--slate);color:var(--ink);font-family:'Barlow',Arial,sans-serif;font-size:17px;line-height:1.55;overflow-x:hidden}
+h1,h2,h3,.cond{font-family:'Barlow Condensed','Arial Narrow',sans-serif;text-transform:uppercase;letter-spacing:.04em}
+img,svg{display:block;max-width:100%}
+a{color:var(--cyan)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+/* blueprint grid backdrop */
+.grid-bg{background-image:linear-gradient(rgba(55,208,214,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(55,208,214,.06) 1px,transparent 1px);background-size:34px 34px}
+/* dimension line divider */
+.dim{display:flex;align-items:center;gap:12px;color:var(--orange);font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:.14em;margin:0 auto;max-width:1180px;padding:0 18px}
+.dim::before,.dim::after{content:"";flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--orange) 0 14px,transparent 14px 20px)}
+.dim span{border:2px solid var(--orange);padding:2px 10px;background:var(--slate);white-space:nowrap}
+/* top bar drawn like a title block */
+.titleblock{border-bottom:3px solid var(--cyan);background:var(--slate2)}
+.titleblock .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:12px;padding-bottom:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:46px;height:46px;border:3px solid var(--cyan);position:relative;flex:none}
+.logo-mark::before{content:"";position:absolute;left:6px;top:6px;width:14px;height:14px;border:2.5px solid var(--orange)}
+.logo-mark::after{content:"";position:absolute;right:6px;bottom:6px;width:16px;height:12px;border:2.5px solid var(--cyan)}
+.logo b{font-family:'Barlow Condensed',sans-serif;font-size:30px;letter-spacing:.06em;color:#fff;line-height:1}
+.logo b em{font-style:normal;color:var(--cyan)}
+.logo small{display:block;font-size:12.5px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase}
+.tb-meta{font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:.12em;color:var(--muted);text-align:right}
+.tb-meta b{color:var(--orange)}
+/* hero: two "rooms" of the plan */
+.hero{padding:44px 0 10px}
+.hero-rooms{display:grid;grid-template-columns:1.08fr .92fr;gap:0;border:3px solid var(--cyan-dim)}
+.room{padding:28px;border:1.5px dashed rgba(55,208,214,.35);position:relative}
+.room-tag{position:absolute;top:-13px;left:18px;background:var(--slate);padding:0 10px;font-family:'Barlow Condensed',sans-serif;font-size:14px;letter-spacing:.2em;color:var(--cyan)}
+.hero h1{font-size:clamp(42px,6vw,68px);line-height:.98;color:#fff;font-weight:700}
+.hero h1 .cy{color:var(--cyan)} .hero h1 .or{color:var(--orange)}
+.hero p.lede{font-size:20px;color:var(--ink);margin:16px 0 8px;max-width:34ch}
+.hero ul{list-style:none;margin:14px 0 22px}
+.hero ul li{padding:7px 0 7px 30px;position:relative;border-bottom:1px dashed rgba(55,208,214,.25)}
+.hero ul li::before{content:"▸";position:absolute;left:4px;color:var(--orange);font-weight:700}
+.hero ul li b{color:#fff}
+.hero-photo{padding:0;overflow:hidden}.hero-photo .room-tag{top:12px;z-index:3;background:var(--slate2)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:18% 50%;min-height:320px}
+.hero-photo figcaption{background:var(--slate2);border-top:3px solid var(--orange);padding:10px 16px;font-size:14.5px;color:var(--muted)}
+.hero-photo figcaption b{color:#fff}
+.btn{display:inline-block;background:var(--orange);color:#16181c;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:24px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:16px 34px;border:3px solid var(--orange);text-align:center}
+.btn:hover{background:transparent;color:var(--orange)}
+.btn.ghost{background:transparent;color:var(--cyan);border-color:var(--cyan)}
+.btn.ghost:hover{background:var(--cyan);color:#16181c}
+.btn small{display:block;font-family:'Barlow',sans-serif;font-size:13.5px;font-weight:600;letter-spacing:.02em;text-transform:none}
+.price-chip{display:inline-block;margin-left:14px;vertical-align:middle;border:2px dashed var(--orange);color:#fff;padding:8px 14px;font-family:'Barlow Condensed',sans-serif;font-size:20px;letter-spacing:.05em}
+.price-chip b{color:var(--orange);font-size:26px}
+/* sections as rooms */
+section{padding:38px 0 8px}
+.sec-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+.sec-head h2{font-size:clamp(32px,4.4vw,46px);color:#fff}
+.sec-head h2 .cy{color:var(--cyan)} .sec-head h2 .or{color:var(--orange)}
+.sec-head .sheet{font-family:'Barlow Condensed',sans-serif;color:var(--orange);border:2px solid var(--orange);padding:2px 10px;font-size:15px;letter-spacing:.16em}
+.sec-sub{color:var(--muted);max-width:72ch;margin-bottom:20px}
+.rooms{display:grid;gap:0;border:3px solid var(--cyan-dim)}
+.rooms .room{background:var(--slate2)}
+.rooms .room:nth-child(even){background:var(--slate3)}
+.tag-sample{display:inline-block;background:var(--orange);color:#16181c;font-weight:700;font-size:13px;letter-spacing:.14em;padding:3px 10px;margin-bottom:10px}
+.plan-card h3{font-size:24px;color:#fff;margin-bottom:8px}
+.plan-card h3 span{color:var(--cyan)}
+.plan-frame{background:var(--paper);border:3px solid var(--cyan);padding:8px}
+.plan-frame img{width:100%;height:auto}
+.plan-card p{color:var(--muted);font-size:15.5px;margin-top:10px}
+.grid-before{grid-template-columns:.85fr 1.15fr}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.arrow{align-self:center;text-align:center;font-family:'Barlow Condensed',sans-serif;color:var(--orange);font-size:22px;letter-spacing:.1em;padding:14px}
+/* comparison chart */
+.chart{border:3px solid var(--cyan-dim);background:var(--slate2);padding:26px}
+.bar-row{margin:18px 0}
+.bar-row .lbl{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-family:'Barlow Condensed',sans-serif;font-size:20px;letter-spacing:.04em;color:#fff}
+.bar-row .lbl .amt{color:var(--cyan)}
+.bar-track{height:30px;background:#1a1d22;border:1.5px dashed rgba(55,208,214,.35);margin-top:6px;position:relative}
+.bar{height:100%;background:repeating-linear-gradient(45deg,#5a6672 0 10px,#4a545f 10px 20px)}
+.bar.us{background:repeating-linear-gradient(45deg,var(--orange) 0 10px,#e56a0d 10px 20px)}
+.bar.cheap{background:repeating-linear-gradient(45deg,#37d0d6 0 10px,#28a7ad 10px 20px)}
+.bar-note{font-size:14.5px;color:var(--muted);margin-top:5px}
+.chart-foot{border-top:2px dashed var(--cyan-dim);margin-top:22px;padding-top:16px;font-size:16px}
+.chart-foot b{color:var(--orange)}
+/* packages */
+.pack{padding:30px}
+.pack .p-name{font-family:'Barlow Condensed',sans-serif;font-size:26px;letter-spacing:.08em;color:var(--cyan)}
+.pack .p-price{font-family:'Barlow Condensed',sans-serif;font-size:64px;color:#fff;line-height:1;margin:6px 0 2px}
+.pack .p-price small{font-size:22px;color:var(--muted)}
+.pack .p-per{color:var(--orange);font-weight:600;margin-bottom:14px}
+.pack ul{list-style:none;margin-bottom:22px}
+.pack ul li{padding:6px 0 6px 26px;position:relative;border-bottom:1px dashed rgba(55,208,214,.22)}
+.pack ul li::before{content:"✓";position:absolute;left:2px;color:var(--cyan);font-weight:700}
+.pack.hot{outline:3px solid var(--orange);outline-offset:-3px}
+.pack .btn{width:100%}
+/* steps */
+.step .n{font-family:'Barlow Condensed',sans-serif;font-size:52px;color:var(--orange);line-height:1}
+.step h3{font-size:23px;color:#fff;margin:6px 0}
+.step p{color:var(--muted);font-size:15.5px}
+/* honest fence */
+.fence{border:3px solid var(--orange);background:#2e2419;padding:26px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
+.fence .sign{font-size:44px;line-height:1}
+.fence h2{font-size:30px;color:var(--orange)}
+.fence p{color:#f3e4d3;max-width:78ch}
+.fence p b{color:#fff}
+/* footer */
+footer{border-top:3px solid var(--cyan);margin-top:44px;background:var(--slate2)}
+footer .wrap{padding-top:22px;padding-bottom:26px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer .f-brand{font-family:'Barlow Condensed',sans-serif;font-size:22px;color:#fff;letter-spacing:.06em}
+footer .f-brand em{font-style:normal;color:var(--cyan)}
+footer p{color:var(--muted);font-size:14.5px;max-width:52ch}
+.final-cta{text-align:center;padding:36px 0 6px}
+.final-cta h2{font-size:clamp(32px,5vw,50px);color:#fff;margin-bottom:16px}
+.final-cta h2 .or{color:var(--orange)}
+@media(max-width:860px){
+  .hero-rooms,.grid-before,.grid-3{grid-template-columns:1fr}
+  .hero-photo img{min-height:220px}
+  .fence{grid-template-columns:1fr}
+  .price-chip{margin:12px 0 0}
+  .btn{width:100%}
+  .tb-meta{display:none}
+}
+</style>
+</head>
+<body class="grid-bg">
+
+<header class="titleblock">
+  <div class="wrap">
+    <div class="logo">
+      <div class="logo-mark" aria-hidden="true"></div>
+      <div><b>FLOORPLAN <em>DESK</em></b><small>2D plans for listings · Sheet A-101</small></div>
+    </div>
+    <div class="tb-meta">SCALE: YOUR SKETCH → LISTING-READY<br>DELIVERY <b>24–48 H</b> · VIA FIVERR</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-rooms">
+      <div class="room">
+        <span class="room-tag">ROOM 01 — THE OFFER</span>
+        <h1>Your sketch in.<br><span class="cy">A listing-ready</span><br>floor plan <span class="or">out.</span></h1>
+        <p class="lede">Buyers plan their furniture before they book the tour. Give every listing a clean 2D floor plan — drawn from your rough sketch or measurements.</p>
+        <ul>
+          <li><b>All 3 versions included:</b> black &amp; white, full color, and dimensioned</li>
+          <li><b>Your branding on the plan</b> — agent logo and contact, drawn in</li>
+          <li><b>24–48 hour delivery</b>, guaranteed in writing on the order</li>
+        </ul>
+        <a class="btn" href="#FIVERR-URL">Order on Fiverr<small>Secure checkout · $49 per property</small></a>
+        <span class="price-chip"><b>$49</b> ALL-IN · PACK OF 5: <b>$199</b></span>
+      </div>
+      <figure class="room hero-photo">
+        <span class="room-tag">ROOM 02 — IN THE FIELD</span>
+        <img src="assets/hero.jpg" alt="Real estate agent showing a couple a floor plan on a tablet during a home tour" width="1000" height="667">
+        <figcaption><b>This is where the plan earns its money:</b> in the buyer's hands, mid-tour, answering “will my sofa fit?” before they ask it out loud.</figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
+
+<div class="dim" aria-hidden="true"><span>36′-0″ OVERALL</span></div>
+
+<!-- BEFORE / AFTER -->
+<section id="sample">
+  <div class="wrap">
+    <div class="sec-head"><span class="sheet">SHEET A-102</span><h2>Before → <span class="cy">After:</span> one apartment, <span class="or">three versions</span></h2></div>
+    <p class="sec-sub">This is a real sample workflow. The sketch on the left is all we need from you — a photo of a hand drawing, a builder plan, or written measurements. Every version on the right is the <b>same apartment</b>, and all three come in the single $49 price.</p>
+
+    <div class="rooms grid-before">
+      <div class="room plan-card">
+        <span class="tag-sample">SAMPLE — BEFORE</span>
+        <h3>What you send <span>(that's it)</span></h3>
+        <div class="plan-frame"><img src="assets/before-sketch.jpg" alt="Photo of a rough hand-drawn pencil sketch of an apartment floor plan on graph paper" width="760" height="507"></div>
+        <p>A phone photo of a pencil sketch. Uneven lines, crossed-out notes, coffee optional. If the room names and rough sizes are on it, we can draw it.</p>
+      </div>
+      <div class="room plan-card">
+        <span class="tag-sample">SAMPLE — AFTER · VERSION 1 OF 3</span>
+        <h3>Black &amp; white <span>— the classic listing sheet</span></h3>
+        <div class="plan-frame"><img src="assets/plan-bw.svg" alt="Sample black and white 2D floor plan of a 2-bedroom apartment with kitchen, dining, living room, two baths, den and balcony" width="600" height="440"></div>
+        <p>Crisp walls, door swings, windows and furniture layout. Prints clean on any listing packet or flyer.</p>
+      </div>
+    </div>
+
+    <div class="rooms grid-before" style="margin-top:22px">
+      <div class="room plan-card">
+        <span class="tag-sample">SAMPLE — AFTER · VERSION 2 OF 3</span>
+        <h3>Full color <span>— for the listing photos carousel</span></h3>
+        <div class="plan-frame"><img src="assets/plan-color.svg" alt="Sample full-color 2D floor plan of the same apartment, rooms color-coded with furniture" width="600" height="440"></div>
+        <p>Color-coded rooms that read at thumbnail size on Zillow, Redfin and Airbnb — where most buyers actually meet your listing.</p>
+      </div>
+      <div class="room plan-card">
+        <span class="tag-sample">SAMPLE — AFTER · VERSION 3 OF 3</span>
+        <h3>Dimensioned <span>— every room measured</span></h3>
+        <div class="plan-frame"><img src="assets/plan-dims.svg" alt="Sample dimensioned 2D floor plan of the same apartment with overall and per-room measurements" width="700" height="540"></div>
+        <p>Overall and per-room dimensions drawn from the measurements you provide. Plus your <b style="color:#fff">logo and contact block</b> set into the sheet on every version.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="dim" aria-hidden="true"><span>COMPARE — SHEET A-103</span></div>
+
+<!-- COMPARISON -->
+<section id="compare">
+  <div class="wrap">
+    <div class="sec-head"><span class="sheet">SHEET A-103</span><h2>The math, <span class="cy">drawn to scale</span></h2></div>
+    <p class="sec-sub">Prices checked on Fiverr, November 2026. The busiest floor-plan sellers charge <b>per version and per format</b> — the black &amp; white is one order, the color is another, the dimensions are a third.</p>
+    <div class="chart">
+      <div class="bar-row">
+        <div class="lbl"><span>Top-rated Fiverr sellers (4.9★, queues of 6+ orders)</span><span class="amt">$50–$200 PER VERSION</span></div>
+        <div class="bar-track"><div class="bar" style="width:92%"></div></div>
+        <p class="bar-note">One version at a time. All three versions of one property can run $150–$600 by the time the listing is complete.</p>
+      </div>
+      <div class="bar-row">
+        <div class="lbl"><span>Budget offshore basic plan</span><span class="amt">$5–$15</span></div>
+        <div class="bar-track"><div class="bar cheap" style="width:12%"></div></div>
+        <p class="bar-note">Bare drawing only: no color version, no dimensions, no agent branding, no listing-ready sheet.</p>
+      </div>
+      <div class="bar-row">
+        <div class="lbl"><span>FLOORPLAN DESK — ALL 3 VERSIONS + YOUR LOGO</span><span class="amt" style="color:var(--orange)">$49 FLAT</span></div>
+        <div class="bar-track"><div class="bar us" style="width:26%"></div></div>
+        <p class="bar-note">Black &amp; white + color + dimensioned + your branding, delivered in 24–48 hours. Listing five properties? The Realtor Pack is 5 complete plans for $199 ($39.80 each).</p>
+      </div>
+      <p class="chart-foot">The difference is the bundle: <b>the leaders charge by the version; we charge by the property.</b> One order, one price, every version your listing needs.</p>
+    </div>
+  </div>
+</section>
+
+<div class="dim" aria-hidden="true"><span>PACKAGES — SHEET A-104</span></div>
+
+<!-- PACKAGES -->
+<section id="packages">
+  <div class="wrap">
+    <div class="sec-head"><span class="sheet">SHEET A-104</span><h2>Two packages. <span class="or">No per-version surprises.</span></h2></div>
+    <div class="rooms grid-before">
+      <div class="room pack">
+        <div class="p-name">Single Listing</div>
+        <div class="p-price">$49<small> USD</small></div>
+        <div class="p-per">per property · one-time</div>
+        <ul>
+          <li>Black &amp; white floor plan</li>
+          <li>Full-color floor plan</li>
+          <li>Dimensioned floor plan (from your measurements)</li>
+          <li>Your logo + contact block on every version</li>
+          <li>PNG + PDF files, listing-ready</li>
+          <li>Delivery in 24–48 hours</li>
+          <li>1 revision round included</li>
+        </ul>
+        <a class="btn" href="#FIVERR-URL">Order Single — $49<small>via Fiverr secure checkout</small></a>
+      </div>
+      <div class="room pack hot">
+        <div class="p-name" style="color:var(--orange)">Realtor Pack — Best for active listings</div>
+        <div class="p-price">$199<small> USD</small></div>
+        <div class="p-per">5 properties · $39.80 per plan set</div>
+        <ul>
+          <li>Everything in Single Listing, × 5 properties</li>
+          <li>Use them as listings come in — no expiry rush</li>
+          <li>Same 3 versions + branding on every property</li>
+          <li>Priority queue: each plan in 24–48 hours</li>
+          <li>Consistent sheet style across your whole portfolio</li>
+          <li>2 revision rounds per property</li>
+        </ul>
+        <a class="btn" href="#FIVERR-URL">Order Realtor Pack — $199<small>via Fiverr secure checkout</small></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head"><span class="sheet">SHEET A-105</span><h2>From sketch to listing in <span class="cy">three steps</span></h2></div>
+    <div class="rooms grid-3">
+      <div class="room step"><div class="n">01</div><h3>Send what you have</h3><p>A photo of a hand sketch, an old builder plan, or written room measurements — plus property photos if you have them, and your logo file.</p></div>
+      <div class="room step"><div class="n">02</div><h3>We draw the sheet</h3><p>Your plan is drafted clean: walls, doors, windows, furniture layout and room labels, in all three versions, with your branding set in.</p></div>
+      <div class="room step"><div class="n">03</div><h3>List it in 24–48 h</h3><p>PNG + PDF files land in your Fiverr inbox, ready to upload to the MLS, Zillow, Redfin, Airbnb or your flyer. One revision round included.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HONEST FENCE -->
+<section id="honest">
+  <div class="wrap">
+    <div class="fence">
+      <div class="sign" aria-hidden="true">⚠️</div>
+      <div>
+        <h2>Read this before you order — the honest fence</h2>
+        <p>This is a <b>marketing floor plan for listings</b>: it helps buyers, renters and guests understand a property's layout. It is <b>not an architectural document</b>, it is not drawn or stamped by a licensed architect or engineer, and it <b>cannot be used for building permits, construction, or code compliance</b>. Dimensions reflect the sketch and measurements <b>you</b> provide — if your measurements are off, the plan will faithfully draw them off. For permits or construction, hire a licensed local architect.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="final-cta wrap">
+  <h2>Your next listing deserves<br>a plan, <span class="or">not a guess.</span></h2>
+  <a class="btn" href="#FIVERR-URL">Start my floor plan — $49<small>All 3 versions + my branding · 24–48 h · via Fiverr</small></a>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="f-brand">FLOORPLAN <em>DESK</em></div>
+      <p>2D marketing floor plans for realtors, landlords and Airbnb hosts. Drawn from your sketch, delivered in 24–48 hours.</p>
+    </div>
+    <p>Marketing plans only — not architectural documents; not for permits or construction.<br>© 2026 FloorPlan Desk · Orders via Fiverr</p>
+  </div>
+</footer>
+
+</body>
+</html>
